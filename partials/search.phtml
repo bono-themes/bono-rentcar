@@ -2,9 +2,11 @@
 
 use Krystal\Form\Element;
 
+$id = 143; // Change the ID of your custom page
+
 ?>
 
-<form>
+<form action="<?= $cms->createUrl($id, 'Pages'); ?>" method="GET">
     <div class="form-group">
       <label><?php $this->show('Where do you want to take a car?'); ?></label>
       <?= Element::text('pickup', null, ['class' => 'form-control', 'placeholder' => $this->translate('For example - Airport')]); ?>
