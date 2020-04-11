@@ -1,0 +1,65 @@
+<?php
+
+use Krystal\Form\Element;
+use Rentcar\Collection\GenderCollection;
+use Rentcar\Collection\PaymentMethodCollection;
+
+$genderCol = new GenderCollection();
+$payMethCol = new PaymentMethodCollection();
+
+$genders = $genderCol->getAll();
+$methods = $payMethCol->getAll();
+
+?>
+
+<form action="<?= $this->url('Rentcar:Car@bookAction'); ?>" method="POST">
+    <?= Element::hidden('car_id', $carId); ?>
+
+    <fieldset>
+        <legend><?php $this->show('Client information'); ?></legend>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php $this->show('Full name'); ?></label>
+                    <?= Element::text('booking[name]', null, ['class' => 'form-control', 'placeholder' => $this->translate('Type as in your passport')]); ?>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php $this->show('Gender'); ?></label>
+                    <?= Element::select('booking[gender]', $this->translateArray($genders), null, ['class' => 'form-control']); ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php $this->show('Email'); ?></label>
+                    <?= Element::text('booking[email]', null, ['class' => 'form-control', 'placeholder' => $this->translate('For notifications')]); ?>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php $this->show('Phone'); ?></label>
+                    <?= Element::text('booking[phone]', null, ['class' => 'form-control', 'placeholder' => $this->translate('For contacts if needed')]); ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label><?php $this->show('Payment method'); ?></label>
+            <?= Element::select('booking[method]', $this->translateArray($methods), null, ['class' => 'form-control']); ?>
+        </div>
+
+        <div class="form-group">
+            <label><?php $this->show('Additional wishes '); ?></label>
+            <?= Element::textarea('booking[comment]', null, ['class' => 'form-control', 'rows' => 6, 'placeholder' => $this->translate('Do you have extra wishes?')]); ?>
+        </div>
+    </fieldset>
+
+    <?= Element::submit($this->translate('Book now'), ['class' => 'btn btn-lg btn-primary']); ?>
+</form>
