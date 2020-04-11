@@ -9,12 +9,12 @@ $id = 143; // Change the ID of your custom page
 <form action="<?= $cms->createUrl($id, 'Pages'); ?>" method="GET">
     <div class="form-group">
       <label><?php $this->show('Where do you want to take a car?'); ?></label>
-      <?= Element::text('pickup', null, ['class' => 'form-control', 'placeholder' => $this->translate('For example - Airport')]); ?>
+      <?= Element::text('location[pickup]', null, ['class' => 'form-control', 'placeholder' => $this->translate('For example - Airport')]); ?>
     </div>
 
     <div class="form-group">
       <label><?php $this->show('Where would you return a car?'); ?></label>
-      <?= Element::text('return', null, ['class' => 'form-control', 'placeholder' => $this->translate('For example - Hotel')]); ?>
+      <?= Element::text('location[return]', null, ['class' => 'form-control', 'placeholder' => $this->translate('For example - Hotel')]); ?>
     </div>
 
     <!-- Pickup -->
