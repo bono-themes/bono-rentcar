@@ -14,12 +14,12 @@ if (!isset($finder)) {
 <form action="<?= $cms->createUrl($id, 'Pages'); ?>" method="GET">
     <div class="form-group">
       <label><?php $this->show('Where do you want to take a car?'); ?></label>
-      <?= Element::text('location[pickup]', $finder->getPickup(), ['class' => 'form-control', 'placeholder' => $this->translate('For example - Airport')]); ?>
+      <?= Element::text('pickup[location]', $finder->getPickupLocation(), ['class' => 'form-control', 'placeholder' => $this->translate('For example - Airport')]); ?>
     </div>
 
     <div class="form-group">
       <label><?php $this->show('Where would you return a car?'); ?></label>
-      <?= Element::text('location[return]', $finder->getReturn(), ['class' => 'form-control', 'placeholder' => $this->translate('For example - Hotel')]); ?>
+      <?= Element::text('return[location]', $finder->getReturnLocation(), ['class' => 'form-control', 'placeholder' => $this->translate('For example - Hotel')]); ?>
     </div>
 
     <!-- Pickup -->
