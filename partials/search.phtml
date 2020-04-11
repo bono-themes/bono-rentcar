@@ -9,12 +9,12 @@ $id = 143; // Change the ID of your custom page
 <form action="<?= $cms->createUrl($id, 'Pages'); ?>" method="GET">
     <div class="form-group">
       <label><?php $this->show('Where do you want to take a car?'); ?></label>
-      <?= Element::text('location[pickup]', null, ['class' => 'form-control', 'placeholder' => $this->translate('For example - Airport')]); ?>
+      <?= Element::text('location[pickup]', $finder->getPickup(), ['class' => 'form-control', 'placeholder' => $this->translate('For example - Airport')]); ?>
     </div>
 
     <div class="form-group">
       <label><?php $this->show('Where would you return a car?'); ?></label>
-      <?= Element::text('location[return]', null, ['class' => 'form-control', 'placeholder' => $this->translate('For example - Hotel')]); ?>
+      <?= Element::text('location[return]', $finder->getReturn(), ['class' => 'form-control', 'placeholder' => $this->translate('For example - Hotel')]); ?>
     </div>
 
     <!-- Pickup -->
@@ -22,14 +22,14 @@ $id = 143; // Change the ID of your custom page
         <div class="col-lg-7">
             <div class="form-group">
               <label><?php $this->show('Pickup date'); ?></label>
-              <?= Element::date('pickup[date]', null, ['class' => 'form-control']); ?>
+              <?= Element::date('pickup[date]', $finder->getPickupDate(), ['class' => 'form-control']); ?>
             </div>
         </div>
 
         <div class="col-lg-5">
             <div class="form-group">
               <label><?php $this->show('Pickup time'); ?></label>
-              <?= Element::time('pickup[time]', null, ['class' => 'form-control']); ?>
+              <?= Element::time('pickup[time]', $finder->getPickupTime(), ['class' => 'form-control']); ?>
             </div>
         </div>
     </div>
@@ -39,14 +39,14 @@ $id = 143; // Change the ID of your custom page
         <div class="col-lg-7">
             <div class="form-group">
               <label><?php $this->show('Return date'); ?></label>
-              <?= Element::date('return[date]', null, ['class' => 'form-control']); ?>
+              <?= Element::date('return[date]', $finder->getReturnDate(), ['class' => 'form-control']); ?>
             </div>
         </div>
 
         <div class="col-lg-5">
             <div class="form-group">
               <label><?php $this->show('Return time'); ?></label>
-              <?= Element::time('return[time]', null, ['class' => 'form-control']); ?>
+              <?= Element::time('return[time]', $finder->getReturnTime(), ['class' => 'form-control']); ?>
             </div>
         </div>
     </div>
