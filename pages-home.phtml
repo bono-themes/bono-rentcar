@@ -1,0 +1,61 @@
+<?php
+
+use Krystal\Form\Element;
+
+?>
+
+<section class="mt-5">
+    <h2><?php $this->show('Find a car'); ?></h2>
+
+    <form>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                  <label><?php $this->show('Where do you want to take a car?'); ?></label>
+                  <?= Element::text('pickup', null, ['class' => 'form-control', 'placeholder' => $this->translate('For example - Airport')]); ?>
+                </div>
+
+                <div class="form-group">
+                  <label><?php $this->show('Where would you return a car?'); ?></label>
+                  <?= Element::text('return', null, ['class' => 'form-control', 'placeholder' => $this->translate('For example - Hotel')]); ?>
+                </div>
+
+                <!-- Pickup -->
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="form-group">
+                          <label><?php $this->show('Pickup date'); ?></label>
+                          <?= Element::date('pickup[date]', null, ['class' => 'form-control']); ?>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="form-group">
+                          <label><?php $this->show('Pickup time'); ?></label>
+                          <?= Element::time('pickup[time]', null, ['class' => 'form-control']); ?>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Return -->
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="form-group">
+                          <label><?php $this->show('Return date'); ?></label>
+                          <?= Element::date('return[date]', null, ['class' => 'form-control']); ?>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="form-group">
+                          <label><?php $this->show('Return time'); ?></label>
+                          <?= Element::time('return[time]', null, ['class' => 'form-control']); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <?= Element::submit($this->translate('Search'), ['class' => 'btn btn-lg btn-primary']); ?>
+    </form>
+</section>
