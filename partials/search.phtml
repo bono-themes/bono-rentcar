@@ -1,8 +1,13 @@
 <?php
 
 use Krystal\Form\Element;
+use Rentcar\Service\FinderEntity;
 
 $id = 143; // Change the ID of your custom page
+
+if (!isset($finder)) {
+    $finder = new FinderEntity();
+}
 
 ?>
 
