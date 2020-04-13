@@ -11,7 +11,9 @@ if (!isset($finder)) {
 
 ?>
 
-<form action="<?= $cms->createUrl($id, 'Pages'); ?>" method="GET">
+<form action="<?= $cms->createUrl($id, 'Pages'); ?>" method="POST">
+    <?= Element::hidden('csrf-token', $csrfToken); ?>
+
     <div class="form-group">
       <label><?php $this->show('Where do you want to take a car?'); ?></label>
       <?= Element::text('pickup[location]', $finder->getPickupLocation(), ['class' => 'form-control', 'placeholder' => $this->translate('For example - Airport')]); ?>
