@@ -1,0 +1,12 @@
+<section>
+    
+    <?php if ($success): ?>
+    <h2 class="page-header"><?php $this->show('Thank you'); ?></h2>
+    <p><?php $this->show('You have successfully booked a car. Thank you for using our service!'); ?></p>
+    <?php else: ?>
+    
+    <h2 class="page-header"><?php $this->show('An error occurred'); ?></h2>
+    <p><?php $this->show('The car can not be reserved for provided dates'); ?></p>
+    <?php endif; ?>
+    
+</section>
