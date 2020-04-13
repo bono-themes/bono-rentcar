@@ -12,14 +12,15 @@
                     <?= $car->getDescription(); ?>
                 </div>
             </div>
-
-            <?php $this->loadPartial('booking', [
-                'carId' => $car->getId()
-            ]); ?>
         </aside>
 
         <aside class="col-4 bg-light p-4">
             <?= $this->loadPartial('search'); ?>
         </aside>
     </div>
+
+    <?php $this->loadPartial('booking', [
+        'carId' => $car->getId()
+    ]); ?>
+
 </section>
